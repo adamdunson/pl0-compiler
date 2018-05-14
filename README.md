@@ -5,7 +5,7 @@ Last updated on 2012-04-23
 
 [PL/0 Wikipedia page](http://en.wikipedia.org/wiki/PL/0)
 
-This was written as a class project. Complete User's Manual located
+This was written as a class project in college. User's Manual located
 [here](https://raw.github.com/adamdunson/pl0-compiler/master/doc/PL0%20User%27s%20Manual.pdf).
 
 This README.markdown is written in Markdown and contains instructions for the Linux

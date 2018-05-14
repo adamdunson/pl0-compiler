@@ -1,7 +1,6 @@
 /*
  * PL/0 Compiler
  * Written by Adam Dunson
- * Last updated on 2012-04-23
  * Filename: fancy_string.c
  *
  * Custom fancy_string struct for variable length char arrays. Most stuff is at
@@ -23,11 +22,11 @@
  * @return  the fancy_string pointer
  */
 fancy_string *fancy_initialize(fancy_string *str) {
-	str = (fancy_string *)malloc(sizeof(fancy_string));
-	str->value = (char *)malloc(sizeof(char));
-	str->value[0] = 0;
-	str->size = 0;
-	return str;
+  str = (fancy_string *)malloc(sizeof(fancy_string));
+  str->value = (char *)malloc(sizeof(char));
+  str->value[0] = 0;
+  str->size = 0;
+  return str;
 }
 
 /**
@@ -40,17 +39,17 @@ fancy_string *fancy_initialize(fancy_string *str) {
  * @return  pointer to the location of the fancy_string
  */
 fancy_string *fancy_copy(fancy_string *dst, char *src) {
-	if(!dst) {
-		dst = fancy_initialize(dst);
-		if(!dst)
-			return NULL;
-	}
+  if(!dst) {
+    dst = fancy_initialize(dst);
+    if(!dst)
+      return NULL;
+  }
 
-	dst->size = strlen(src);
-	dst->value = (char *)realloc(dst->value, (dst->size + 1) * sizeof(char));
-	strcpy(dst->value, src);
+  dst->size = strlen(src);
+  dst->value = (char *)realloc(dst->value, (dst->size + 1) * sizeof(char));
+  strcpy(dst->value, src);
 
-	return dst;
+  return dst;
 }
 
 /**
@@ -63,22 +62,22 @@ fancy_string *fancy_copy(fancy_string *dst, char *src) {
  * @return  pointer to the location of the fancy_string
  */
 fancy_string *fancy_append(fancy_string *dst, char *src) {
-	if(!dst) {
-		dst = fancy_initialize(dst);
-		if(!dst)
-			return NULL;
-	}
+  if(!dst) {
+    dst = fancy_initialize(dst);
+    if(!dst)
+      return NULL;
+  }
 
-	dst->size += strlen(src);
+  dst->size += strlen(src);
 
-	char tmp[dst->size + 1];
-	sprintf(tmp, "%s%s", dst->value, src);
+  char tmp[dst->size + 1];
+  sprintf(tmp, "%s%s", dst->value, src);
 
-	dst->value = (char *)realloc(dst->value, (dst->size + 1) * sizeof(char));
-	dst->value[0] = 0;
+  dst->value = (char *)realloc(dst->value, (dst->size + 1) * sizeof(char));
+  dst->value[0] = 0;
 
-	strcpy(dst->value, tmp);
-	return dst;
+  strcpy(dst->value, tmp);
+  return dst;
 }
 
 /**
@@ -92,16 +91,16 @@ fancy_string *fancy_append(fancy_string *dst, char *src) {
  * @return  pointer to the location of the fancy_string
  */
 fancy_string *fancy_push(fancy_string *dst, char src) {
-	if(!dst) {
-		dst = fancy_initialize(dst);
-		if(!dst)
-			return NULL;
-	}
+  if(!dst) {
+    dst = fancy_initialize(dst);
+    if(!dst)
+      return NULL;
+  }
 
-	char tmp[2];
-	sprintf(tmp, "%c", src);
+  char tmp[2];
+  sprintf(tmp, "%c", src);
 
-	return fancy_append(dst, tmp);
+  return fancy_append(dst, tmp);
 }
 
 /**
@@ -112,16 +111,16 @@ fancy_string *fancy_push(fancy_string *dst, char src) {
  * @return  pointer to the location of the fancy_string
  */
 char fancy_pop(fancy_string *dst) {
-	if(!dst) {
-		return -1;
-	}
+  if(!dst) {
+    return -1;
+  }
 
-	dst->size--;
-	char c = dst->value[dst->size];
-	dst->value[dst->size] = 0;
-	dst->value = (char *)realloc(dst->value, (dst->size + 1) * sizeof(char));
+  dst->size--;
+  char c = dst->value[dst->size];
+  dst->value[dst->size] = 0;
+  dst->value = (char *)realloc(dst->value, (dst->size + 1) * sizeof(char));
 
-	return c;
+  return c;
 }
 
 /**
@@ -132,8 +131,8 @@ char fancy_pop(fancy_string *dst) {
  * @param str the fancy_string to be freed
  */
 void fancy_free(fancy_string *str) {
-	if(str) {
-		free(str->value);
-		free(str);
-	}
+  if(str) {
+    free(str->value);
+    free(str);
+  }
 }

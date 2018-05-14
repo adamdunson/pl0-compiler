@@ -1,7 +1,6 @@
 /*
  * PL/0 Compiler
  * Written by Adam Dunson
- * Last updated on 2012-04-23
  * Filename: pl0-compiler.h
  *
  * Header file for the compiler driver.
@@ -22,18 +21,18 @@
  */
 
 struct symbol {
-	int kind;      // const = 1, var = 2, proc = 3
-	char name[12]; // name up to 11 chars
-	int val;       // number (ASCII value) 
-	int level;     // L level
-	int addr;      // M address
+  int kind;      // const = 1, var = 2, proc = 3
+  char name[12]; // name up to 11 chars
+  int val;       // number (ASCII value) 
+  int level;     // L level
+  int addr;      // M address
 };
 typedef struct symbol symbol;
 
 typedef struct {
-	int op;
-	int l;
-	int m;
+  int op;
+  int l;
+  int m;
 } instruction;
 
 extern const symbol EMPTY_SYMBOL;

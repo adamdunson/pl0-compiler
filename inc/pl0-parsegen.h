@@ -1,7 +1,6 @@
 /*
  * PL/0 Compiler
  * Written by Adam Dunson
- * Last updated on 2012-04-23
  * Filename: pl0-parsegen.h
  *
  * Code parser/generator header.

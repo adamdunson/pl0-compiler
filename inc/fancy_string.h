@@ -1,7 +1,6 @@
 /*
  * PL/0 Compiler
  * Written by Adam Dunson
- * Last updated on 2012-04-23
  * Filename: fancy_string.h
  *
  * Custom fancy_string struct's header.
@@ -11,8 +10,8 @@
 #define FANCY_STRING_H
 
 struct fancy_string {
-	char *value;
-	unsigned int size;
+  char *value;
+  unsigned int size;
 };
 typedef struct fancy_string fancy_string;
 

@@ -1,7 +1,6 @@
 /*
  * PL/0 Compiler
  * Written by Adam Dunson
- * Last updated on 2012-04-23
  * Filename: lexeme_list.h
  *
  * Custom lexeme_list struct's header.
@@ -14,9 +13,9 @@
 #include "pl0-tokens.h"
 
 typedef struct lexeme_list {
-	char *lex;
-	token_type t;
-	struct lexeme_list *next;
+  char *lex;
+  token_type t;
+  struct lexeme_list *next;
 } lexeme_list;
 
 lexeme_list *add_lexeme(lexeme_list *lexemes, char *lex, token_type t);
